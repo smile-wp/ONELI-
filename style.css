@@ -1,0 +1,299 @@
+/* ===== style.css — oneli 全局样式 ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F9F7F4;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  color: #2c2c2c;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+  width: 100%;
+  flex: 1;
+}
+
+/* 头部区域 */
+.top-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.shop-name {
+  margin-bottom: 1.2rem;
+}
+
+.shop-name a {
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 350;
+  letter-spacing: 2px;
+  color: #2c2c2c;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #2c2c2c;
+  font-size: 1rem;
+  font-weight: 340;
+  letter-spacing: 0.5px;
+  transition: opacity 0.2s;
+}
+
+.nav-links a:hover {
+  opacity: 0.5;
+}
+
+.nav-links a.active {
+  border-bottom: 1px solid #2c2c2c;
+  padding-bottom: 2px;
+}
+
+/* 页面标题 */
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 320;
+  margin: 3rem 0 2rem;
+  color: #2c2c2c;
+}
+
+/* 首页 Hero 区域 */
+.hero {
+  text-align: center;
+  margin: 4rem 0 5rem;
+}
+
+.main-greeting {
+  font-size: 2.8rem;
+  font-weight: 320;
+  letter-spacing: -0.5px;
+  color: #2c2c2c;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.sub-text {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #5e5e5e;
+  margin-bottom: 2.5rem;
+}
+
+.social-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1.2rem;
+}
+
+.social-row a {
+  color: #2c2c2c;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: 330;
+  transition: opacity 0.2s;
+}
+
+.social-row a:hover {
+  opacity: 0.5;
+}
+
+/* 作品网格（首页和Shop共用） */
+.artwork-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 3.5rem 0 5rem;
+}
+
+.artwork-item {
+  aspect-ratio: 1 / 1;
+  background-color: #EAE3DB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.artwork-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 占位样式（后续可替换为真实图片） */
+.placeholder-art {
+  width: 100%;
+  height: 100%;
+  background: #DCD2C8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #8F847A;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.placeholder-art i {
+  font-size: 2.2rem;
+  margin-bottom: 6px;
+  opacity: 0.7;
+}
+
+/* About 页面专用 */
+.about-content {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #4a4a4a;
+  text-align: center;
+}
+
+.about-content p {
+  margin-bottom: 1.8rem;
+}
+
+.about-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: #DCD2C8;
+  margin: 2rem auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8F847A;
+  font-size: 3rem;
+}
+
+/* Contact 页面专用 */
+.contact-content {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-info {
+  margin: 2rem 0;
+  font-size: 1.1rem;
+  color: #4a4a4a;
+}
+
+.contact-info i {
+  margin-right: 10px;
+  color: #8a827b;
+  width: 24px;
+}
+
+.contact-info p {
+  margin: 0.8rem 0;
+}
+
+.social-large {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin: 2.5rem 0;
+  font-size: 1.2rem;
+}
+
+.social-large a {
+  color: #2c2c2c;
+  text-decoration: none;
+}
+
+.social-large a:hover {
+  opacity: 0.5;
+}
+
+.shop-message {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #5e5e5e;
+  margin-bottom: 3rem;
+}
+
+/* 底部 */
+.footer-links {
+  margin-top: 5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid #E0D8D0;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  font-size: 0.9rem;
+  font-weight: 330;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #2c2c2c;
+}
+
+.footer-links a:hover {
+  opacity: 0.5;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 2rem;
+  color: #8a827b;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+/* 响应式 */
+@media (max-width: 700px) {
+  .container {
+    padding: 2rem 1.5rem;
+  }
+  .nav-links {
+    gap: 2rem;
+  }
+  .main-greeting {
+    font-size: 2.2rem;
+  }
+  .artwork-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .artwork-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 作品卡片链接样式 */
+.artwork-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.artwork-link:hover {
+  opacity: 0.9;
+}

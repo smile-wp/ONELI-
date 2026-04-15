@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>oneli · artwork detail</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* 详情页专属样式 */
+    .detail-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 2rem;
+      color: #2c2c2c;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+    .back-link:hover {
+      opacity: 0.5;
+    }
+    .artwork-detail {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+    .detail-image {
+      flex: 1 1 400px;
+    }
+    .detail-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .detail-info {
+      flex: 1 1 300px;
+    }
+    .detail-title {
+      font-size: 2rem;
+      font-weight: 350;
+      margin-bottom: 1rem;
+      color: #2c2c2c;
+    }
+    .detail-meta {
+      color: #8a827b;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    .detail-description {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #4a4a4a;
+      margin-bottom: 2rem;
+    }
+    .detail-price {
+      font-size: 1.3rem;
+      color: #2c2c2c;
+      margin-bottom: 1.5rem;
+    }
+    .buy-button {
+      background: none;
+      border: 1px solid #2c2c2c;
+      padding: 0.8rem 2.5rem;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #2c2c2c;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .buy-button:hover {
+      background: #2c2c2c;
+      color: #F9F7F4;
+    }
+    @media (max-width: 700px) {
+      .artwork-detail {
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="detail-container">
+  <!-- 返回上一页 -->
+  <a href="javascript:history.back()" class="back-link"><i class="fas fa-arrow-left"></i> back</a>
+
+  <div class="artwork-detail">
+    <div class="detail-image">
+      <img id="detailImg" src="image/1.jpeg" alt="artwork">
+    </div>
+    <div class="detail-info">
+      <h1 id="detailTitle" class="detail-title">Spring Illustration</h1>
+      <div id="detailMeta" class="detail-meta">2026 · watercolor on paper · 8x10 in</div>
+      <p id="detailDesc" class="detail-description">
+        A gentle spring scene inspired by the first blooms in the garden.
+      </p>
+      <div id="detailPrice" class="detail-price">$45.00</div>
+      <button class="buy-button" onclick="alert('Thank you for your interest! Shop functionality coming soon.')">add to cart</button>
+    </div>
+  </div>
+</div>
+
+<footer style="text-align: center; padding: 2rem; color: #8a827b;">
+  <div class="copyright">© oneli 2026</div>
+</footer>
+
+<script>
+  (function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const artworkId = urlParams.get('id') || '1';
+
+    // 作品数据 —— 请根据你的真实信息修改
+    const artworkData = {
+      '1': {
+        title: 'Spring Illustration',
+        meta: '2026 · watercolor on paper · 8x10 in',
+        desc: 'A gentle spring scene inspired by the first blooms in the garden. Painted with soft washes and delicate brushstrokes.',
+        img: 'image/1.jpeg',
+        price: '$45.00'
+      },
+      '2': {
+        title: 'Cat Nap',
+        meta: '2025 · colored pencil · 5x7 in',
+        desc: 'A sleepy tabby curled up in a patch of afternoon sun. The warm tones capture the quiet comfort of a lazy day.',
+        img: 'image/2.jpeg',
+        price: '$35.00'
+      },
+      '3': {
+        title: 'Forest Painting',
+        meta: '2025 · gouache · 9x12 in',
+        desc: 'A quiet trail through the woods, dappled with light. Layers of green create depth and a sense of calm.',
+        img: 'image/3.jpeg',
+        price: '$55.00'
+      },
+      '4': {
+        title: 'Moon Jar',
+        meta: '2024 · ceramic · 6x6 in',
+        desc: 'A minimalist moon jar inspired by traditional Korean pottery. Simple, serene, and timeless.',
+        img: 'image/4.jpeg',
+        price: '$65.00'
+      },
+      '5': {
+        title: 'Koi Fish Print',
+        meta: '2025 · linocut print · 8x10 in',
+        desc: 'A hand-carved linocut print of koi swimming in a pond. Each print is unique.',
+        img: 'image/1.jpeg',  // 你目前用的是 1.jpeg，后续可替换
+        price: '$30.00'
+      },
+      '6': {
+        title: 'Botanical Study',
+        meta: '2026 · ink on paper · 5x7 in',
+        desc: 'A delicate study of native wildflowers, drawn from observation in the garden.',
+        img: 'image/1.jpeg',  // 同上
+        price: '$25.00'
+      }
+    };
+
+    const data = artworkData[artworkId] || artworkData['1'];
+
+    document.getElementById('detailImg').src = data.img;
+    document.getElementById('detailTitle').textContent = data.title;
+    document.getElementById('detailMeta').textContent = data.meta;
+    document.getElementById('detailDesc').textContent = data.desc;
+    document.getElementById('detailPrice').textContent = data.price;
+  })();
+</script>
+</body>
+</html>
