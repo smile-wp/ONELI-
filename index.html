@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>oneli · home</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #F9F7F4;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      color: #2c2c2c;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+      width: 100%;
+      flex: 1;
+    }
+    .top-header { text-align: center; margin-bottom: 2rem; }
+    .shop-name { margin-bottom: 1.2rem; }
+    .shop-name a {
+      text-decoration: none;
+      font-size: 1.8rem;
+      font-weight: 350;
+      letter-spacing: 2px;
+      color: #2c2c2c;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2c2c2c;
+      font-size: 1rem;
+      font-weight: 340;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 0.5; }
+    /* 当前页面高亮 */
+    .nav-links a.active {
+      border-bottom: 1px solid #2c2c2c;
+      padding-bottom: 2px;
+    }
+    .hero { text-align: center; margin: 4rem 0 5rem; }
+    .main-greeting {
+      font-size: 2.8rem;
+      font-weight: 320;
+      letter-spacing: -0.5px;
+      color: #2c2c2c;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+    .sub-text {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #5e5e5e;
+      margin-bottom: 2.5rem;
+    }
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1.2rem;
+    }
+    .social-row a {
+      color: #2c2c2c;
+      font-size: 1rem;
+      text-decoration: none;
+      font-weight: 330;
+      transition: opacity 0.2s;
+    }
+    .social-row a:hover { opacity: 0.5; }
+    .artwork-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 3.5rem 0 5rem;
+    }
+    .artwork-item {
+      aspect-ratio: 1 / 1;
+      background-color: #EAE3DB;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .artwork-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .placeholder-art {
+      width: 100%;
+      height: 100%;
+      background: #DCD2C8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #8F847A;
+      font-size: 0.9rem;
+      font-weight: 300;
+    }
+    .placeholder-art i {
+      font-size: 2.2rem;
+      margin-bottom: 6px;
+      opacity: 0.7;
+    }
+    .footer-links {
+      margin-top: 5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid #E0D8D0;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      font-size: 0.9rem;
+      font-weight: 330;
+    }
+    .footer-links a {
+      text-decoration: none;
+      color: #2c2c2c;
+    }
+    .footer-links a:hover { opacity: 0.5; }
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      color: #8a827b;
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+    @media (max-width: 700px) {
+      .container { padding: 2rem 1.5rem; }
+      .nav-links { gap: 2rem; }
+      .main-greeting { font-size: 2.2rem; }
+      .artwork-grid { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+    }
+    @media (max-width: 450px) {
+      .artwork-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="container">
+  <header class="top-header">
+    <div class="shop-name"><a href="index.html">oneli</a></div>
+    <nav class="nav-links">
+      <a href="index.html" class="active">home</a>
+      <a href="shop.html">shop</a>
+      <a href="about.html">about</a>
+      <a href="contact.html">contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 class="main-greeting">Thank you for visiting<br>my little art shop</h1>
+    <div class="sub-text">✧  original art & prints  ✧</div>
+    <div class="social-row">
+      <a href="#">instagram</a>
+      <a href="#">pinterest</a>
+      <a href="#">email</a>
+    </div>
+  </section>
+
+  <div class="artwork-grid">
+    <div class="artwork-item"><div class="placeholder-art"><i class="fas fa-feather-alt"></i><span>spring</span></div></div>
+    <div class="artwork-item"><div class="placeholder-art"><i class="fas fa-cat"></i><span>cat nap</span></div></div>
+    <div class="artwork-item"><div class="placeholder-art"><i class="fas fa-tree"></i><span>forest</span></div></div>
+    <div class="artwork-item"><div class="placeholder-art"><i class="fas fa-moon"></i><span>moon jar</span></div></div>
+    <div class="artwork-item"><div class="placeholder-art"><i class="fas fa-fish"></i><span>koi</span></div></div>
+    <div class="artwork-item"><div class="placeholder-art"><i class="fas fa-leaf"></i><span>botanical</span></div></div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">FAQ</a>
+      <a href="#">shipping</a>
+      <a href="#">returns</a>
+      <a href="#">stockists</a>
+    </div>
+    <div class="copyright">© oneli 2026</div>
+  </footer>
+</div>
+</body>
+</html>

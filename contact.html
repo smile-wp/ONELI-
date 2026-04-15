@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>oneli · contact</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #F9F7F4;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      color: #2c2c2c;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem 4rem;
+      width: 100%;
+      flex: 1;
+    }
+    .top-header { text-align: center; margin-bottom: 2rem; }
+    .shop-name { margin-bottom: 1.2rem; }
+    .shop-name a {
+      text-decoration: none;
+      font-size: 1.8rem;
+      font-weight: 350;
+      letter-spacing: 2px;
+      color: #2c2c2c;
+    }
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2c2c2c;
+      font-size: 1rem;
+      font-weight: 340;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 0.5; }
+    .nav-links a.active {
+      border-bottom: 1px solid #2c2c2c;
+      padding-bottom: 2px;
+    }
+    .page-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 320;
+      margin: 3rem 0 2rem;
+      color: #2c2c2c;
+    }
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .contact-info {
+      margin: 2rem 0;
+      font-size: 1.1rem;
+      color: #4a4a4a;
+    }
+    .contact-info i {
+      margin-right: 10px;
+      color: #8a827b;
+      width: 24px;
+    }
+    .contact-info p {
+      margin: 0.8rem 0;
+    }
+    .social-large {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin: 2.5rem 0;
+      font-size: 1.2rem;
+    }
+    .social-large a {
+      color: #2c2c2c;
+      text-decoration: none;
+    }
+    .social-large a:hover { opacity: 0.5; }
+    .footer-links {
+      margin-top: 5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid #E0D8D0;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      font-size: 0.9rem;
+      font-weight: 330;
+    }
+    .footer-links a { text-decoration: none; color: #2c2c2c; }
+    .footer-links a:hover { opacity: 0.5; }
+    .copyright {
+      text-align: center;
+      margin-top: 2rem;
+      color: #8a827b;
+      font-size: 0.8rem;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="container">
+  <header class="top-header">
+    <div class="shop-name"><a href="index.html">oneli</a></div>
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="shop.html">shop</a>
+      <a href="about.html">about</a>
+      <a href="contact.html" class="active">contact</a>
+    </nav>
+  </header>
+
+  <h1 class="page-title">contact</h1>
+
+  <div class="contact-content">
+    <div class="contact-info">
+      <p><i class="far fa-envelope"></i> hello@oneli.art</p>
+      <p><i class="fab fa-instagram"></i> @oneli.studio</p>
+      <p><i class="far fa-clock"></i> studio visits by appointment</p>
+    </div>
+
+    <div class="social-large">
+      <a href="#">instagram</a>
+      <a href="#">pinterest</a>
+      <a href="#">email</a>
+    </div>
+
+    <p style="color: #8a827b; margin-top: 2rem;">✧  I'd love to hear from you  ✧</p>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">FAQ</a>
+      <a href="#">shipping</a>
+      <a href="#">returns</a>
+      <a href="#">stockists</a>
+    </div>
+    <div class="copyright">© oneli 2026</div>
+  </footer>
+</div>
+</body>
+</html>
