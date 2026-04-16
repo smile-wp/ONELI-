@@ -297,3 +297,86 @@ body {
 .artwork-link:hover {
   opacity: 0.9;
 }
+
+/* ===== 背景音乐控制按钮 ===== */
+.music-player {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+}
+
+.music-toggle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(249, 247, 244, 0.85);
+  backdrop-filter: blur(4px);
+  border: 1px solid #E0D8D0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #5e5e5e;
+  font-size: 1.3rem;
+}
+
+.music-toggle:hover {
+  background: #F9F7F4;
+  border-color: #b7a089;
+  color: #2c2c2c;
+  transform: scale(1.05);
+}
+
+.music-toggle.playing {
+  color: #b28b6f;
+  border-color: #dbb89b;
+}
+
+.music-toggle i {
+  pointer-events: none;
+}
+
+/* 移动端适配 */
+@media (max-width: 700px) {
+  .music-player {
+    bottom: 20px;
+    right: 20px;
+  }
+  .music-toggle {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+  }
+}
+
+
+
+/* ===== Canvas 动画层 ===== */
+#kittyCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: visible;  /* 让 Canvas 捕获点击 */
+  z-index: 1;
+}
+
+/* 页面主要内容在 Canvas 上层，并且内部元素可点击 */
+.container {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;      /* 容器本身不阻挡点击，让点击穿透到 Canvas */
+}
+
+.container * {
+  pointer-events: auto;      /* 容器内所有元素恢复可点击 */
+}
+
+/* 音乐按钮需要最高层级 */
+.music-player {
+  z-index: 10;
+}
