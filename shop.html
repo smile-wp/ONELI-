@@ -7,6 +7,124 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
+
+<!-- 背景音乐播放器 -->
+<div class="music-player">
+  <div class="music-toggle" id="musicToggle" title="播放音乐">
+    <i class="fas fa-music"></i>
+  </div>
+</div>
+<audio id="bgMusic" loop preload="auto" src="music/bg-music.mp3"></audio>
+
+<script>
+  (function() {
+    const audio = document.getElementById('bgMusic');
+    const toggleBtn = document.getElementById('musicToggle');
+    const icon = toggleBtn.querySelector('i');
+
+    // 音乐文件路径 —— 请替换为你自己的音乐文件
+    const MUSIC_SRC = 'music/bg-music.mp3';
+    
+    // 从 localStorage 读取音量、播放状态和进度
+    let isPlaying = localStorage.getItem('musicPlaying') === 'true';
+    let savedTime = parseFloat(localStorage.getItem('musicTime')) || 0;
+
+    // 设置音频源（确保与 HTML 中一致）
+    audio.src = MUSIC_SRC;
+    audio.volume = 0.5; // 默认音量 50%
+
+    // 恢复播放进度
+    audio.currentTime = savedTime;
+
+    // 更新按钮图标
+    function updateButtonState() {
+      if (audio.paused) {
+        toggleBtn.classList.remove('playing');
+        icon.className = 'fas fa-music';
+        toggleBtn.title = '播放音乐';
+      } else {
+        toggleBtn.classList.add('playing');
+        icon.className = 'fas fa-pause';
+        toggleBtn.title = '暂停音乐';
+      }
+    }
+
+    // 保存状态到 localStorage
+    function saveState() {
+      localStorage.setItem('musicPlaying', !audio.paused);
+      localStorage.setItem('musicTime', audio.currentTime);
+    }
+
+    // 尝试自动播放（可能被浏览器阻止）
+    async function attemptAutoPlay() {
+      try {
+        if (isPlaying) {
+          await audio.play();
+          updateButtonState();
+        }
+      } catch (e) {
+        // 自动播放被阻止，重置状态
+        isPlaying = false;
+        localStorage.setItem('musicPlaying', 'false');
+        updateButtonState();
+      }
+    }
+
+    // 播放/暂停切换
+    async function togglePlay() {
+      if (audio.paused) {
+        try {
+          await audio.play();
+          isPlaying = true;
+        } catch (e) {
+          // 播放失败（如未交互），仍然尝试请求播放
+          console.warn('播放被阻止，请手动点击播放');
+          isPlaying = false;
+        }
+      } else {
+        audio.pause();
+        isPlaying = false;
+      }
+      updateButtonState();
+      saveState();
+    }
+
+    // 监听播放进度更新并保存
+    audio.addEventListener('timeupdate', () => {
+      localStorage.setItem('musicTime', audio.currentTime);
+    });
+
+    // 监听播放/暂停事件，保存状态
+    audio.addEventListener('play', () => {
+      localStorage.setItem('musicPlaying', 'true');
+      updateButtonState();
+    });
+    audio.addEventListener('pause', () => {
+      localStorage.setItem('musicPlaying', 'false');
+      updateButtonState();
+    });
+
+    // 页面卸载前保存最终状态
+    window.addEventListener('beforeunload', () => {
+      saveState();
+    });
+
+    // 绑定按钮点击事件
+    toggleBtn.addEventListener('click', togglePlay);
+
+    // 初始化：尝试自动播放，并更新按钮状态
+    if (isPlaying) {
+      attemptAutoPlay();
+    } else {
+      updateButtonState();
+    }
+
+    // 如果之前没有播放，但希望用户一进入就能看到提示，保持暂停图标
+  })();
+</script>
+
+
 <body>
 <div class="container">
   <header class="top-header">
